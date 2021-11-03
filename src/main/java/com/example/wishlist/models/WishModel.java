@@ -1,28 +1,18 @@
 package com.example.wishlist.models;
 
-import java.util.List;
-
-public class WishList {
+public class WishModel {
 
     private long id;
     private String name;
-    private List<Wish> wishes;
+    private String url;
 
-    public WishList(long id, String name, List<Wish> wishes) {
+    public WishModel(long id, String name, String url) {
         this.id = id;
         this.name = name;
-        this.wishes = wishes;
+        this.url = url;
     }
 
-    public WishList() {
-    }
-
-    public List<Wish> getWishes() {
-        return wishes;
-    }
-
-    public void setWishes(List<Wish> wishes) {
-        this.wishes = wishes;
+    public WishModel() {
     }
 
     public long getId() {
@@ -39,5 +29,13 @@ public class WishList {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

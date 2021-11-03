@@ -1,6 +1,23 @@
-create table wish_lists
+CREATE TABLE wishlist
 (
-    id integer not null,
-    name varchar(255) not null,
-    primary key(id)
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(127) NOT NULL
 );
+
+CREATE TABLE wish
+(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(127) NOT NULL,
+    url VARCHAR(255)
+);
+
+-- Many to Many
+CREATE TABLE wishlist_wish
+(
+    wl_id INT NOT NULL,
+    w_id INT NOT NULL,
+    PRIMARY KEY (wl_id, w_id),
+    FOREIGN KEY (wl_id) REFERENCES wishlist(id),
+    FOREIGN KEY (w_id) REFERENCES wish(id)
+);
+

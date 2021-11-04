@@ -10,3 +10,6 @@ INSERT INTO wishlist_wish(wl_id, w_id) VALUES (1,2);
 
 INSERT INTO wishlist_wish(wl_id, w_id) VALUES (2,3);
 
+INSERT INTO user(id, name, email) VALUES (1,'MyName','MyEmail');
+INSERT INTO user(id, name, email) VALUES (2,'MyName2','MyEmail2');
+INSERT INTO user(id, name, email) VALUES (3,'MyName3','MyEmail3');

@@ -21,3 +21,10 @@ CREATE TABLE wishlist_wish
     FOREIGN KEY (w_id) REFERENCES wish(id)
 );
 
+CREATE TABLE user
+(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(127) NOT NULL,
+    email VARCHAR(127) NOT NULL
+);
+

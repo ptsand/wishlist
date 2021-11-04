@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: commonHead">
+    <title id="title">Create new Wishlist</title>
+</head>
+<body>
+<header th:replace="fragments/header :: commonHeader(activePage='create-wishlist')"></header>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">Create a brand new wishlist</div>
+                <form method="GET" action="/wishlist" class="row g-3">
+                    <input type="hidden" name="action" value="create" />
+                    <div class="col md-2"><label for="name" class="form-label">Name: </label></div>
+                    <div class="col md-6"><input name="name" class="form-control" id="name" type="text" /></div>
+                    <div class="col md-1"><button type="submit" class="btn btn-primary" /></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments/footer :: commonFooter"></footer>
+</body>
+</html>

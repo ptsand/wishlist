@@ -14,6 +14,10 @@ public class WishlistModel {
         this.wishes = wishes;
     }
 
+    public WishlistModel(String name) {
+        this.name = name;
+    }
+
     public WishlistModel() {
     }
 

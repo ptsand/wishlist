@@ -20,4 +20,10 @@ public class WishlistService {
     public WishlistModel getWishlist(long id) {
         return wishlistRepos.findById(id);
     }
+
+    public long addWishlist(String name) {
+        WishlistModel wm = new WishlistModel(name);
+        wishlistRepos.insertWishList(wm);
+        return wm.getId();
+    }
 }

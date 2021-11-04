@@ -34,7 +34,7 @@ public interface WishlistRepository {
     @Update("UPDATE wishlist SET name=#{name} WHERE id=#{id}")
     int update(WishlistModel wishlistModel);
 
-    @Insert("INSERT INTO wishlist (id, name, user_id) VALUES (#{id}, #{name}, #{userId})")
+    @Insert("INSERT INTO wishlist (id, name) VALUES (#{id}, #{name})")
     // Sets the object id to the id generated in database
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
     void insertWishList(WishlistModel wishlistModel);

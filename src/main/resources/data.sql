@@ -8,6 +8,8 @@ INSERT INTO wish(id, name, url) VALUES (3,'My Wish 3','https://MyURL2.test');
 INSERT INTO wishlist_wish(wl_id, w_id) VALUES (1,1);
 INSERT INTO wishlist_wish(wl_id, w_id) VALUES (1,2);
 
+INSERT INTO wishlist_wish(wl_id, w_id) VALUES (2,1);
+INSERT INTO wishlist_wish(wl_id, w_id) VALUES (2,2);
 INSERT INTO wishlist_wish(wl_id, w_id) VALUES (2,3);
 
 INSERT INTO user(id, name, email) VALUES (1,'MyName','MyEmail');

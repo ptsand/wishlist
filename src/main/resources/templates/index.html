@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:include="fragments/header :: commonHead">
-    <title id="title">Wishlist</title>
+    <title id="title">Wishlist - Home</title>
 </head>
-<body id="frontpage">
-<header th:replace="fragments/header :: commonHeader"></header>
+<body>
+<header th:replace="fragments/header :: commonHeader(activePage='home')"></header>
 <div class="container">
+    <h1 class="text-center">Welcome [name]</h1>
     <div class="row">
         <div class="col" th:each="wl : ${wishlists}">
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                    <a th:href="@{/wishlist(id=${wl.getId()})}" th:text="${wl.getName()}"></a>
+                    <a class="" th:href="@{/wishlist(action='show',id=${wl.getId()})}" th:text="${wl.getName()}"></a>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" th:each="wish : ${wl.getWishes()}" th:text="${wish.getName()}"></li>

@@ -1,9 +1,9 @@
-INSERT INTO wishlist(id, name) VALUES (1,'MyFavoriteWishlist1');
-INSERT INTO wishlist(id, name) VALUES (2,'MyFavoriteWishlist2');
+INSERT INTO wishlist(id, name) VALUES (1,'My Wishlist 1');
+INSERT INTO wishlist(id, name) VALUES (2,'My Favorite Wishlist');
 
-INSERT INTO wish(id, name, url) VALUES (1,'MyWish1','http');
-INSERT INTO wish(id, name, url) VALUES (2,'MyWish2','MyURL');
-INSERT INTO wish(id, name, url) VALUES (3,'MyWish2','MyURL');
+INSERT INTO wish(id, name, url) VALUES (1,'My Wish 1','https://myFavorieURL.nowhere');
+INSERT INTO wish(id, name, url) VALUES (2,'My Wish 2','https://MyURL1.test');
+INSERT INTO wish(id, name, url) VALUES (3,'My Wish 3','https://MyURL2.test');
 
 INSERT INTO wishlist_wish(wl_id, w_id) VALUES (1,1);
 INSERT INTO wishlist_wish(wl_id, w_id) VALUES (1,2);

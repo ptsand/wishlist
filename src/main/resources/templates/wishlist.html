@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${wishlist.getName()}"></title>
+<head th:include="fragments/header :: commonHead">
+    <title id="title" th:text="${wishlist.getName()}"></title>
 </head>
-<body>
-<h2 th:text="${wishlist.getName()}"></h2>
-<table id="wishes">
-    <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>URL</th>
-    </tr>
-    <tr th:each="wish : ${wishlist.getWishes()}">
-        <td th:text="${wish.getId()}"></td>
-        <td th:text="${wish.getName()}"></td>
-        <td th:text="${wish.getUrl()}"></td>
-    </tr>
-</table>
+<body id="frontpage">
+<header th:replace="fragments/header :: commonHeader"></header>
+<div class="container">
+    <div class="row">
+        <div class="col" th:each="wish : ${wishlist.getWishes()}">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header" th:text="${wish.getName()}">
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a class="btn btn-primary btn-sm" th:href="@{ ${wish.getUrl()} }">Link</a>
+                        <a class="btn btn-primary btn-sm" th:href="@{/edit-wish(id=${wish.getId()})}">Edit</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments/footer :: commonFooter"></footer>
 </body>
 </html>

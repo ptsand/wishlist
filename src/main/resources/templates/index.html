@@ -1,59 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Wishlist</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head th:include="fragments/header :: commonHead">
+    <title id="title">Wishlist</title>
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/users">Users</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Add user</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
+<body id="frontpage">
+<header th:replace="fragments/header :: commonHeader"></header>
 <div class="container">
-    <h2>Wishlists:</h2>
-    <table id="wish-lists">
-        <tr>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>WishesCount</th>
-        </tr>
-        <tr th:each="wl : ${wishlists}">
-            <td th:text="${wl.getId()}"></td>
-            <td th:text="${wl.getName()}"></td>
-            <td th:text="${wl.getWishes().size()}"></td>
-        </tr>
-    </table>
-    <h2>Sign up today!</h2>
-    <div id="form-wrapper">
-        <form id="add-user-form" method="POST" action="/add-user">
-            <label for="first-name">First name: </label>
-            <input name="first-name" id="first-name" type="text">
-            <label for="email">Email: </label>
-            <input name="email" id="email" type="email">
-            <input type="submit">
-        </form>
+    <div class="row">
+        <div class="col" th:each="wl : ${wishlists}">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    <a th:href="@{/wishlist(id=${wl.getId()})}" th:text="${wl.getName()}"></a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" th:each="wish : ${wl.getWishes()}" th:text="${wish.getName()}"></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
+<footer th:replace="fragments/footer :: commonFooter"></footer>
 </body>
 </html>

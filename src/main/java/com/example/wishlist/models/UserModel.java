@@ -1,5 +1,7 @@
 package com.example.wishlist.models;
 
+import com.example.wishlist.validation.ValidPassword;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,12 +13,18 @@ public class UserModel {
     private int id;
 
     @NotNull
-    @Size(min = 2, max = 40)
+    @Size(min = 2, max = 100)
     private String name;
 
     @NotNull
     @Email
     private String email;
+
+    @NotNull
+    private String username;
+
+    @ValidPassword
+    private String password;
 
     public int getId() {
         return id;

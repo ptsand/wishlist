@@ -18,9 +18,14 @@ public class WishlistController {
     }
 
     @GetMapping("/")
-    public String index(Model model){
-        model.addAttribute("wishlists", wishlistService.getWishlists());
+    public String index(){
         return "index";
+    }
+
+    @GetMapping("/wishlists")
+    public String wishlists(Model model){
+        model.addAttribute("wishlists", wishlistService.getWishlists());
+        return "wishlists";
     }
 
     @GetMapping("/wishlist")
@@ -37,7 +42,7 @@ public class WishlistController {
             // TODO: code to delete a wishlist
         }
         else if (action.equals("create")) {
-            if (name == null) return "create-wishlist";
+            if (name == null) return "add-wishlist";
             long newId = wishlistService.addWishlist(name);
             attributes.addAttribute("action","show");
             attributes.addAttribute("id", newId);

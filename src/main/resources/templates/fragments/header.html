@@ -19,6 +19,11 @@
                 <li class="nav-item">
                     <a th:href="@{/}" class="nav-link" th:classappend="${#strings.equals(activePage,'home')} ? 'active'">Home</a>
                 </li>
+                <!-- TODO: display login item if user is not authenticated -->
+                <!-- TODO: display beneath items only if user is authenticated -->
+                <li class="nav-item">
+                    <a th:href="@{/wishlists}" class="nav-link" th:classappend="${#strings.equals(activePage,'wishlists')} ? 'active'">Wishlists</a>
+                </li>
                 <li class="nav-item">
                     <a th:href="@{/wishlist(action='create')}" class="nav-link" th:classappend="${#strings.equals(activePage,'add-wishlist')} ? 'active'">Add Wishlist</a>
                 </li>

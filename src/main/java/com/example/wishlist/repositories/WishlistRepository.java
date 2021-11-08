@@ -3,8 +3,11 @@ package com.example.wishlist.repositories;
 import com.example.wishlist.models.WishModel;
 import com.example.wishlist.models.WishlistModel;
 import org.apache.ibatis.annotations.*;
-
 import java.util.List;
+
+// This interface defines the ORM (Object relational mapping) of wishlists
+// MyBatis (https://mybatis.org/mybatis-3/index.html) autogenerates the implementation
+// of this interface using a typehandler, prepared statements and connection pooling
 
 @Mapper
 public interface WishlistRepository {

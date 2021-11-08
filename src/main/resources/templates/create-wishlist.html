@@ -6,19 +6,17 @@
 <body>
 <header th:replace="fragments/header :: commonHeader(activePage='create-wishlist')"></header>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">Create a brand new wishlist</div>
-                <form method="GET" action="/wishlist" class="row g-3">
-                    <input type="hidden" name="action" value="create" />
-                    <div class="col md-2"><label for="name" class="form-label">Name: </label></div>
-                    <div class="col md-6"><input name="name" class="form-control" id="name" type="text" /></div>
-                    <div class="col md-1"><button type="submit" class="btn btn-primary" /></div>
-                </form>
-            </div>
+    <div class="">Create a brand new wishlist</div>
+    <form method="GET" action="/wishlist" class="">
+        <input type="hidden" name="action" value="create" />
+        <div class="mt-4 mb-4">
+            <label for="name" class="form-label">Name:</label>
+            <input name="name" class="form-control" id="name" type="text" />
         </div>
-    </div>
+        <div class="mb-2">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
 <footer th:replace="fragments/footer :: commonFooter"></footer>
 </body>

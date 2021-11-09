@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/signup")
+@RequestMapping("/register")
 public class SignupController {
 
     @ModelAttribute("user")
@@ -21,14 +21,14 @@ public class SignupController {
 
     @GetMapping
     public String showForm() {
-        return "signup";
+        return "register";
     }
 
     @PostMapping
     public String submitForm(@Valid @ModelAttribute("user") UserModel user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "signup";
+            return "register";
         }
-        return "success";
+        return "redirect:/index";
     }
 }

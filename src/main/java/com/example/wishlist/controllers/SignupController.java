@@ -28,7 +28,7 @@ public class SignupController {
     public String submitForm(@Valid @ModelAttribute("user") UserModel user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "register";
-        }
-        return "redirect:/index";
+        }//call database thing here?
+        return "redirect:/";
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-<form th:fragment="register" th:object="${user}" method="GET" th:action="@{/register}" class="">
+<form th:fragment="register" th:object="${user}" method="POST" th:action="@{/register}" class="">
     <input type="hidden" name="action" value="create" />
     <div class="mt-4 mb-4">
 

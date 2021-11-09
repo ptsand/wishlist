@@ -2,7 +2,6 @@ package com.example.wishlist.services;
 
 import com.example.wishlist.models.UserModel;
 import com.example.wishlist.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

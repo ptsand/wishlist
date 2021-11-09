@@ -1,21 +1,7 @@
 package com.example.wishlist.services;
 
-import com.example.wishlist.repositories.UserRepository;
+import com.example.wishlist.models.UserModel;
 
-public class UserService {
-
-    private final UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    // add user
-
-    // get list of all users
-
-    // get user by id
-
-
-
+public interface UserService {
+    void registerUser(UserModel userModel);
 }

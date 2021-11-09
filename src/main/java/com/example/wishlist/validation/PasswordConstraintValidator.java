@@ -15,7 +15,6 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
-    // TODO: Check if CharacterRule can be done with Danish or Nordic characters included
     @Override
     public boolean isValid(String password, ConstraintValidatorContext context) {
         PasswordValidator validator = new PasswordValidator(Arrays.asList(
@@ -32,8 +31,6 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
             new IllegalSequenceRule(EnglishSequenceData.Alphabetical, 5, false),
 
             new IllegalSequenceRule(EnglishSequenceData.Numerical, 5, false)
-
-
 
         ));
         RuleResult result = validator.validate(new PasswordData(password));

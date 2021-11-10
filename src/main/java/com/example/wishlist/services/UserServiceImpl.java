@@ -4,6 +4,8 @@ import com.example.wishlist.models.UserModel;
 import com.example.wishlist.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -16,5 +18,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void registerUser(UserModel userModel){
         userRepository.insertUser(userModel);
+    }
+
+    @Override
+    public List<UserModel> search(String searchTerm) {
+        return userRepository.searchUser("%"+searchTerm+"%");
     }
 }

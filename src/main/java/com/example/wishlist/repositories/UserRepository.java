@@ -44,4 +44,15 @@ public interface UserRepository {
     @Insert("INSERT INTO user (id, name, email, username, password) VALUES (#{id}, #{name}, #{email}, #{username}, #{password})" )
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
     void insertUser(UserModel userModel);
+
+    @Select("SELECT * FROM user WHERE name LIKE #{searchTerm}") //LIKE '%#{searchTerm}%' OR username LIKE '%#{searchTerm}%' OR email LIKE '%#{searchTerm}%'")
+
+    @Results(value = {
+            @Result(property="id", column="id"),
+            @Result(property="name", column="name"),
+            @Result(property="email", column="email"),
+            @Result(property="username", column="username"),
+            @Result(property="password", column="password")})
+   //@org.apache.ibatis.annotations.
+    List<UserModel> searchUser(String searchTerm);
 }

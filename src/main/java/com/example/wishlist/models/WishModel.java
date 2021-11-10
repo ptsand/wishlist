@@ -12,6 +12,11 @@ public class WishModel {
         this.url = url;
     }
 
+    public WishModel(String name, String url) {
+        this.name = name;
+        this.url = url;
+    }
+
     public WishModel() {
     }
 

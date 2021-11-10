@@ -40,6 +40,10 @@ public interface WishlistRepository {
     @Insert("INSERT INTO wishlist (id, name) VALUES (#{id}, #{name})")
     // Sets the object id to the id generated in database
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
-    void insertWishList(WishlistModel wishlistModel);
+    void insertWishlist(WishlistModel wishlistModel);
+
+    //
+    @Insert("INSERT INTO wishlist_wish (wl_id, w_id) VALUES (#{wishlist_id}, #{wish_id})")
+    void mapWishes(long wishlist_id, long wish_id);
 }
 

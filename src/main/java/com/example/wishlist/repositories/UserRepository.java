@@ -26,6 +26,9 @@ public interface UserRepository {
         @Result(property="password", column="password")})
     UserModel findById(long id);
 
+    @Select("SELECT * FROM user WHERE username = #{username}")
+    UserModel findUserByUsername(String username);
+
     @Delete("DELETE FROM user WHERE id = #{id}")
     int deleteById(long id);
 

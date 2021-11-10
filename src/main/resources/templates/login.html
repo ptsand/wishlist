@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: commonHead">
+    <title id="title">Wishlist - Login</title>
+</head>
+<body>
+<header th:replace="fragments/header :: commonHeader(activePage='login')"></header>
+<div class="container">
+    <!-- TODO: Add th:if user logged in -->
+    <h1 class="text-center mb-5">Please login</h1>
+    <div th:if="${error}" class="alert alert-danger">
+        Invalid username and password.
+    </div>
+    <form th:replace="fragments/login-form :: login-form"></form>
+</div>
+<footer th:replace="fragments/footer :: commonFooter"></footer>
+</body>
+</html>

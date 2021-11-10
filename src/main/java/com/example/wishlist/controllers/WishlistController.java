@@ -17,11 +17,6 @@ public class WishlistController {
         this.wishlistService = wishlistService;
     }
 
-    @GetMapping("/")
-    public String index(){
-        return "index";
-    }
-
     @GetMapping("/wishlists")
     public String wishlists(Model model){
         model.addAttribute("wishlists", wishlistService.getWishlists());

@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-<form th:fragment="search" method="GET" action="/relation/search" class="">
-    <div class="mt-4 mb-4">
-        <label for="searchTerm" class="form-label">Search for a Friend:</label>
-        <input name="searchTerm" class="form-control" id="searchTerm" type="text" required/>
-    </div>
-    <div class="mb-2">
-        <input type="submit" value="Search" class="btn btn-primary" />
-    </div>
-</form>
+    <form th:fragment="search(searchTerm)" method="GET" action="/relation/search" class="">
+        <div class="mt-4 mb-4">
+            <label for="searchTerm" class="form-label">Search for a Friend:</label>
+            <input name="searchTerm" class="form-control" id="searchTerm" type="text" th:value="${searchTerm}" required/>
+        </div>
+        <div class="mb-2">
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <form th:fragment="search-result(userList)" method="POST" th:action="@{/relation/create}" class="">
+        <div class="mt-4 mb-4">
+            <label for="friendId">Connect to a Friend:</label>
+            <select name="friendId" id="friendId">
+                <option th:each="user : ${userList}" th:value="${user.getId()}" th:text="${user.getName()}"></option>
+            </select>
+        </div>
+
+        <div class="mb-2">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    </form>
+
 </body>
 </html>

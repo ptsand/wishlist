@@ -24,14 +24,25 @@ public class RelationController {
         return new UserModel();
     }
 
-    @RequestMapping("/search")
+    @GetMapping("/search")
     public String search(Model model, @Param("searchTerm") String searchTerm) {
         List<UserModel> userList = userService.search(searchTerm);
         model.addAttribute("userList", userList);
         model.addAttribute("searchTerm", searchTerm);
-
-        // TODO: Display results of search on the same page, underneath the search field
-
         return "search";
+    }
+
+    @PostMapping("/create")
+    public String create(@Param("friendId") long friendId){
+        var loggedInUserId = getCurrentUserId();
+        userService.createRelation(loggedInUserId, friendId);
+
+        //go to a page that shows current friend list
+        return "index";
+    }
+
+    private long getCurrentUserId() {
+        //TODO: return id for currently logged in user
+        return 1;
     }
 }

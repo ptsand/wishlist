@@ -7,8 +7,14 @@
 <header th:replace="fragments/header :: commonHeader(activePage='search')"></header>
 <div class="container">
     <div class="">Friends</div>
-    <form th:replace="fragments/search-form :: search"></form>
+    <form th:replace="fragments/search-form :: search(searchTerm=${searchTerm})"></form>
 </div>
+
+<div class="container">
+    <form th:replace="fragments/search-form :: search-result(userList=${userList})" />
+</div>
+
+
 <footer th:replace="fragments/footer :: commonFooter"></footer>
 </body>
 </html>

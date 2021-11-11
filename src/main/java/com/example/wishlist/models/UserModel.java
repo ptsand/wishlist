@@ -10,8 +10,6 @@ import java.util.List;
 
 public class UserModel {
 
-    //@NotNull
-    //@Size(min = 2, max = 4)
     private int id;
 
     private List<WishlistModel> wishlists;

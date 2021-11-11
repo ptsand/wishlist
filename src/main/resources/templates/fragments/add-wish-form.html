@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<form th:fragment="add-wish(wishlists)" method="POST" th:action="@{/wish/create}" class="">
+    <div class="mt-4 mb-4">
+    <label for="wishlist">Choose Wishlist:</label>
+    <select name="wishlistId" id="wishlist">
+        <option th:each="wl : ${wishlists}" th:value="${wl.getId()}" th:text="${wl.getName()}"></option>
+    </select>
+    </div>
+    <div class="mt-4 mb-4">
+        <label for="name" class="form-label">Name:</label>
+        <input name="name" class="form-control" id="name" type="text" />
+    </div>
+    <div class="mt-4 mb-4">
+        <label for="link" class="form-label">Link:</label>
+        <input name="url" class="form-control" id="link" type="text" />
+    </div>
+    <div class="mb-2">
+        <input type="submit" class="btn btn-primary" />
+    </div>
+</form>
+</body>
+</html>

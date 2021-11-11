@@ -42,13 +42,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // hasAuthority("USER")
         // TODO: Delete comments and activate login
         http.authorizeRequests()
-            //    .anyRequest().authenticated()
+                //.anyRequest().authenticated()
                 .antMatchers("/**").permitAll() /* Temporary allow all */
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .failureUrl("/login-error")
-                .permitAll();
+                .permitAll()
+                .and()
+                .csrf().disable();
         /*http
                 .authorizeRequests().antMatchers("/username","/wish*").hasAnyRole("ADMIN", "USER")
                 .and()

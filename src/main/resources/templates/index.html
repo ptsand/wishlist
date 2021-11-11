@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:include="fragments/header :: commonHead">
     <title id="title">Wishlist - Home</title>
 </head>
 <body>
 <header th:replace="fragments/header :: commonHeader(activePage='home')"></header>
 <div class="container">
-    <h1 class="text-center mb-5">Welcome back [user.name]</h1>
+    <h1 class="text-center mb-5">Welcome back <span sec:authentication="name"></span></h1>
     <div th:if="${logout}" class="alert alert-success">
         You have been logged out.
     </div>

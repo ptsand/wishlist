@@ -44,8 +44,8 @@ public class WishlistRepositoryTests {
         wishRepos.insertWish(wish);
         WishlistModel retrieveEmptyWishlist = wishlistRepos.findById(model.getId());
         assertTrue(retrieveEmptyWishlist.getWishes().isEmpty());
-        wishlistRepos.mapWishes(model.getId(), wish.getId());
-        wishlistRepos.mapWishes(model.getId(), wish.getId());
+        wishlistRepos.mapWish(model.getId(), wish.getId());
+        wishlistRepos.mapWish(model.getId(), wish.getId());
         WishlistModel retrievedWishlistWithOneWish = wishlistRepos.findById(model.getId());
         assertFalse(retrievedWishlistWithOneWish.getWishes().isEmpty());
         assertTrue(retrievedWishlistWithOneWish.getWishes().size() == 1);
@@ -58,9 +58,9 @@ public class WishlistRepositoryTests {
         wishRepos.insertWish(wish);
         WishlistModel retrieveEmptyWishlist = wishlistRepos.findById(model.getId());
         assertTrue(retrieveEmptyWishlist.getWishes().isEmpty());
-        wishlistRepos.mapWishes(model.getId(), wish.getId());
+        wishlistRepos.mapWish(model.getId(), wish.getId());
         Exception exception = assertThrows(DuplicateKeyException.class, () -> {
-            wishlistRepos.mapWishes(model.getId(), wish.getId());
+            wishlistRepos.mapWish(model.getId(), wish.getId());
         });
         WishlistModel retrievedWishlistWithOneWish = wishlistRepos.findById(model.getId());
         assertFalse(retrievedWishlistWithOneWish.getWishes().isEmpty());

@@ -4,10 +4,13 @@ import com.example.wishlist.services.WishlistService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@RequestMapping("/wishlist")
 public class WishlistController {
 
     private final WishlistService wishlistService;
@@ -17,39 +20,27 @@ public class WishlistController {
         this.wishlistService = wishlistService;
     }
 
-    @GetMapping("/wishlists")
-    public String wishlists(Model model){
+    @GetMapping("/show-all")
+    public String showAllWishlists(Model model){ // TODO: show only the logged in users wishlists
         model.addAttribute("wishlists", wishlistService.getWishlists());
         return "wishlists";
     }
 
-    @GetMapping("/wishlist")
-    public String wishlist(Model model, @RequestParam String action,
-                           @RequestParam(required = false) Long id,
-                           @RequestParam(required = false) String name,
-                           RedirectAttributes attributes
-                           ) {
-        if (action.equals("show")) {
+    @GetMapping("/show")
+    public String showWishlist(Model model, @RequestParam Long id) {
             model.addAttribute("wishlist", wishlistService.getWishlist(id));
             return "wishlist";
-        }
-        else if (action.equals("delete")) {
-            // TODO: code to delete a wishlist
-        }
-        else if (action.equals("create")) {
-            if (name == null) return "add-wishlist";
-            long newId = wishlistService.addWishlist(name);
-            attributes.addAttribute("action","show");
-            attributes.addAttribute("id", newId);
-            return "redirect:/wishlist";
-        }
-        else if (action.equals("update")) {
-
-        }
-        else {
-
-        }
-        return "";
     }
 
+    @GetMapping("/create")
+    public String createWishlistForm() {
+        return "add-wishlist";
+    }
+
+    @PostMapping("/create")
+    public String createWishlist(@RequestParam String name, RedirectAttributes attributes) {
+        long newId = wishlistService.addWishlist(name);
+        attributes.addAttribute("id", newId);
+        return "redirect:/wishlist/show";
+    }
 }

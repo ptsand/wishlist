@@ -39,6 +39,6 @@ public class WishlistService {
     public void addWishToWishlist(WishlistModel wl, WishModel wish) {
         wl.getWishes().add(wish);
         // update wishlist_wish mapping table in database
-        wishlistRepos.mapWishes(wl.getId(), wish.getId());
+        wishlistRepos.mapWish(wl.getId(), wish.getId());
     }
 }

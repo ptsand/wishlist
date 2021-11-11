@@ -21,13 +21,13 @@
                     <a th:href="@{/}" class="nav-link" th:classappend="${#strings.equals(activePage,'home')} ? 'active'">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a th:href="@{/wishlists}" class="nav-link" th:classappend="${#strings.equals(activePage,'wishlists')} ? 'active'">Wishlists</a>
+                    <a th:href="@{/wishlist/show-all}" class="nav-link" th:classappend="${#strings.equals(activePage,'wishlists')} ? 'active'">Wishlists</a>
                 </li>
                 <li class="nav-item">
-                    <a th:href="@{/wishlist(action='create')}" class="nav-link" th:classappend="${#strings.equals(activePage,'add-wishlist')} ? 'active'">Add Wishlist</a>
+                    <a th:href="@{/wishlist/create}" class="nav-link" th:classappend="${#strings.equals(activePage,'add-wishlist')} ? 'active'">Add Wishlist</a>
                 </li>
                 <li class="nav-item">
-                    <a th:href="@{/wish(action='create')}" class="nav-link" th:classappend="${#strings.equals(activePage,'add-wish')} ? 'active'">Add Wish</a>
+                    <a th:href="@{/wish/create}" class="nav-link" th:classappend="${#strings.equals(activePage,'add-wish')} ? 'active'">Add Wish</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">FAQs</a>

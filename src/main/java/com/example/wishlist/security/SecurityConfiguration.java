@@ -40,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // hasAuthority("USER")
-        //
+        // TODO: Delete comments and activate login
         http.authorizeRequests()
             //    .anyRequest().authenticated()
                 .antMatchers("/**").permitAll() /* Temporary allow all */

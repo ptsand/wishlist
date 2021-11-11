@@ -42,8 +42,7 @@ public interface WishlistRepository {
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
     void insertWishlist(WishlistModel wishlistModel);
 
-    //
     @Insert("INSERT INTO wishlist_wish (wl_id, w_id) VALUES (#{wishlist_id}, #{wish_id})")
-    void mapWishes(long wishlist_id, long wish_id);
+    void mapWish(long wishlist_id, long wish_id);
 }
 

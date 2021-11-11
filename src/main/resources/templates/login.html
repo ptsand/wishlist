@@ -6,7 +6,6 @@
 <body>
 <header th:replace="fragments/header :: commonHeader(activePage='login')"></header>
 <div class="container">
-    <!-- TODO: Add th:if user logged in -->
     <h1 class="text-center mb-5">Please login</h1>
     <div th:if="${error}" class="alert alert-danger">
         Invalid username and password.

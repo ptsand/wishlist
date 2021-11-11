@@ -39,10 +39,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // hasAuthority("ADMIN")
+        // hasAuthority("USER")
         //
         http.authorizeRequests()
-                .anyRequest().authenticated()
+            //    .anyRequest().authenticated()
+                .antMatchers("/**").permitAll() /* Temporary allow all */
                 .and()
                 .formLogin()
                 .loginPage("/login")

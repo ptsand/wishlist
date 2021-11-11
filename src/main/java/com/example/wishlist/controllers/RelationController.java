@@ -2,9 +2,10 @@ package com.example.wishlist.controllers;
 
 import com.example.wishlist.models.UserModel;
 import com.example.wishlist.services.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -23,10 +24,12 @@ public class RelationController {
         return new UserModel();
     }
 
-    @GetMapping("/search")
-    public @ResponseBody List<UserModel> search(@RequestParam String searchTerm) {
+    @RequestMapping("/search")
+    public String viewHomePage(Model model, @Param("searchTerm") String searchTerm) {
+        List<UserModel> userList = userService.search(searchTerm);
+        model.addAttribute("userList", userList);
+        model.addAttribute("searchTerm", searchTerm);
 
-        return userService.search(searchTerm);
+        return "search";
     }
-
 }

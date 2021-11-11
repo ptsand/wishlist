@@ -39,34 +39,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // hasAuthority("USER")
-        // TODO: Delete comments and activate login
-        http.authorizeRequests()
-                //.anyRequest().authenticated()
-                .antMatchers("/**").permitAll() /* Temporary allow all */
+        http
+                .authorizeRequests()
+                .antMatchers("/resources/**","/register").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .failureUrl("/login-error")
                 .permitAll()
                 .and()
-                .csrf().disable();
-        /*http
-                .authorizeRequests().antMatchers("/username","/wish*").hasAnyRole("ADMIN", "USER")
-                .and()
-                .authorizeRequests().antMatchers("/","/login", "/resource/**", "/register").permitAll()
-                .and()
-                .formLogin().loginPage("/").usernameParameter("username").passwordParameter("password").permitAll()
-                .loginProcessingUrl("/login")
-                .successForwardUrl("/")
-                .failureUrl("/")
-                .and()
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll()
-                .and()
-                .csrf().disable(); */
-    }/*
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/webjars/**");
-    }*/
+                .logout()
+                .permitAll();
+    }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-<form th:fragment="add-wishlist" method="POST" action="/wishlist/create" class="">
+<form th:fragment="add-wishlist" method="POST" th:action="@{/wishlist/create}">
     <div class="mt-4 mb-4">
         <label for="name" class="form-label">Name:</label>
         <input name="name" class="form-control" id="name" type="text" />

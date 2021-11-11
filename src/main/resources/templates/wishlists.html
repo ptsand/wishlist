@@ -6,12 +6,12 @@
 <body>
 <header th:replace="fragments/header :: commonHeader(activePage='wishlists')"></header>
 <div class="container">
-  <h1 class="text-center mb-5">Your Wishlists</h1>
+  <div class="alert alert-success">Your Wishlists</div>
   <div class="row gy-3">
     <div class="col" th:each="wl : ${wishlists}">
       <div class="card" style="width: 18rem;">
         <div class="card-header">
-          <a class="" th:href="@{/wishlist(action='show',id=${wl.getId()})}" th:text="${wl.getName()}"></a>
+          <a class="" th:href="@{/wishlist/show(id=${wl.getId()})}" th:text="${wl.getName()}"></a>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item" th:each="wish : ${wl.getWishes()}" th:text="${wish.getName()}"></li>

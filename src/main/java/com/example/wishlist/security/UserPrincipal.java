@@ -1,6 +1,7 @@
 package com.example.wishlist.security;
 
 import com.example.wishlist.models.UserModel;
+import com.example.wishlist.models.WishlistModel;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -52,5 +53,9 @@ public class UserPrincipal implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public List<WishlistModel> getWishlists() {
+        return user.getWishlists();
     }
 }

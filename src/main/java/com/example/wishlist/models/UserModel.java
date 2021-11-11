@@ -6,12 +6,23 @@ import com.example.wishlist.validation.ValidPassword;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 public class UserModel {
 
     //@NotNull
     //@Size(min = 2, max = 4)
     private int id;
+
+    private List<WishlistModel> wishlists;
+
+    public void setWishlists(List<WishlistModel> wishlists) {
+        this.wishlists = wishlists;
+    }
+
+    public List<WishlistModel> getWishlists() {
+        return wishlists;
+    }
 
     //@NotNull
     @Size(min = 2, max = 100, message= "Name needs to be between 1 and 50 character")

@@ -6,7 +6,7 @@
 <body>
 <header th:replace="fragments/header :: commonHeader(activePage='add-wishlist')"></header>
 <div class="container">
-    <div class="">Create new Wish</div>
+    <div class="alert alert-success">Create new Wish</div>
     <form th:replace="fragments/add-wish-form :: add-wish(wishlists=${wishlists})"></form>
 </div>
 <footer th:replace="fragments/footer :: commonFooter"></footer>

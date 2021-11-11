@@ -1,6 +1,8 @@
 package com.example.wishlist.repositories;
 
 import com.example.wishlist.models.UserModel;
+import com.example.wishlist.models.WishModel;
+import com.example.wishlist.models.WishlistModel;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -14,8 +16,13 @@ public interface UserRepository {
         @Result(property="name", column="name"),
         @Result(property="email", column="email"),
         @Result(property="username", column="username"),
-        @Result(property="password", column="password")})
+        @Result(property="password", column="password"),
+        @Result(property="wishlists", javaType=List.class, column="id",
+            many=@Many(select="findWishlistsByUserId"))})
     List<UserModel> findAll();
+
+    @Select("SELECT id, name FROM wishlist JOIN user_wishlist ON (id = user_wishlist.wl_id) WHERE u_id = #{id}")
+    List<WishlistModel> findWishlistsByUserId(long id);
 
     @Select("SELECT * FROM user WHERE id = #{id}")
     @Results(value = {
@@ -27,7 +34,18 @@ public interface UserRepository {
     UserModel findById(long id);
 
     @Select("SELECT * FROM user WHERE username = #{username}")
+    @Results(value = {
+            @Result(property="id", column="id"),
+            @Result(property="name", column="name"),
+            @Result(property="email", column="email"),
+            @Result(property="username", column="username"),
+            @Result(property="password", column="password"),
+            @Result(property="wishlists", javaType=List.class, column="id",
+                    many=@Many(select="findWishlistsByUserId"))})
     UserModel findUserByUsername(String username);
+
+    @Insert("INSERT INTO user_wishlist (u_id, wl_id) VALUES (#{user_id}, #{wishlist_id})")
+    void mapWishlist(long user_id, long wishlist_id);
 
     @Delete("DELETE FROM user WHERE id = #{id}")
     int deleteById(long id);

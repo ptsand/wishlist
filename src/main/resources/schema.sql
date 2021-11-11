@@ -29,4 +29,12 @@ CREATE TABLE user
     username VARCHAR(127) NOT NULL,
     password VARCHAR(127) NOT NULL
 );
-
+-- Many to Many
+CREATE TABLE user_wishlist
+(
+    u_id INT NOT NULL,
+    wl_id INT NOT NULL,
+    PRIMARY KEY (u_id, wl_id),
+    FOREIGN KEY (u_id) REFERENCES user(id),
+    FOREIGN KEY (wl_id) REFERENCES wishlist(id)
+);

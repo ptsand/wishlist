@@ -2,13 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
 <form th:fragment="search" method="GET" action="/relation/search" class="">
-    <input type="hidden" name="action" value="create" />
     <div class="mt-4 mb-4">
-        <label for="searchTerm" class="form-label">Search for Friend:</label>
-        <input name="searchTerm" class="form-control" id="searchTerm" type="text" />
+        <label for="searchTerm" class="form-label">Search for a Friend:</label>
+        <input name="searchTerm" class="form-control" id="searchTerm" type="text" required/>
     </div>
     <div class="mb-2">
-        <input type="Submit" class="btn btn-primary" />
+        <input type="submit" value="Search" class="btn btn-primary" />
     </div>
 </form>
 </body>

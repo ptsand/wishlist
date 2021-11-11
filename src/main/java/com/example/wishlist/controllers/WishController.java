@@ -3,6 +3,7 @@ package com.example.wishlist.controllers;
 import com.example.wishlist.models.WishModel;
 import com.example.wishlist.services.WishService;
 import com.example.wishlist.services.WishlistService;
+import org.hibernate.validator.constraints.URL;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.constraints.Size;
 
 @Controller
 @RequestMapping("/wish")
@@ -43,7 +46,7 @@ public class WishController {
     }
 
     @PostMapping("/create")
-    public String createWish(@RequestParam String name, @RequestParam String url, @RequestParam Long wishlistId, RedirectAttributes attributes) {
+    public String createWish(@RequestParam String name, @RequestParam @URL @Size(max=125) String url, @RequestParam Long wishlistId, RedirectAttributes attributes) {
         long newId = wishService.addWish(name, url, wishlistId);
         attributes.addAttribute("id", wishlistId);
         return "redirect:/wishlist/show";

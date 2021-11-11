@@ -14,7 +14,7 @@ public class UserModel {
     private int id;
 
     //@NotNull
-    @Size(min = 2, max = 100, message= "Name needs to be between 2 and 100 character")
+    @Size(min = 2, max = 100, message= "Name needs to be between 1 and 50 character")
     private String name;
 
     @NotNull
@@ -71,9 +71,9 @@ public class UserModel {
     @Override
     public String toString() {
         return "UserModel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
                 '}';
     }
 }

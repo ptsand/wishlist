@@ -25,10 +25,12 @@ public class RelationController {
     }
 
     @RequestMapping("/search")
-    public String viewHomePage(Model model, @Param("searchTerm") String searchTerm) {
+    public String search(Model model, @Param("searchTerm") String searchTerm) {
         List<UserModel> userList = userService.search(searchTerm);
         model.addAttribute("userList", userList);
         model.addAttribute("searchTerm", searchTerm);
+
+        // TODO: Display results of search on the same page, underneath the search field
 
         return "search";
     }

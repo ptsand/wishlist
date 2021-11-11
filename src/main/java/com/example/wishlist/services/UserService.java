@@ -11,4 +11,6 @@ public interface UserService {
     UserModel findUserByUsername(String username);
 
     List<UserModel> search(String searchTerm);
+
+    void createRelation(long loggedInUserId, long friendId);
 }

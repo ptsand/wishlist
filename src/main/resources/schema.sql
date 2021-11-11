@@ -30,3 +30,11 @@ CREATE TABLE user
     password VARCHAR(127) NOT NULL
 );
 
+CREATE TABLE user_relation
+(
+    user1_id INT NOT NULL,
+    user2_id INT NOT NULL,
+    PRIMARY KEY (user1_id, user2_id),
+    FOREIGN KEY (user1_id) REFERENCES user(id),
+    FOREIGN KEY (user2_id) REFERENCES user(id)
+);

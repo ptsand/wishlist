@@ -9,8 +9,6 @@ import javax.validation.constraints.Size;
 
 public class UserModel {
 
-    //@NotNull
-    //@Size(min = 2, max = 4)
     private int id;
 
     //@NotNull

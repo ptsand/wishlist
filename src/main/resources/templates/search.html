@@ -9,6 +9,12 @@
     <div class="">Friends</div>
     <form th:replace="fragments/search-form :: search"></form>
 </div>
+
+<div class="container">
+    <table th:replace="fragments/search-form :: search-result(userList=${userList})" />
+</div>
+
+
 <footer th:replace="fragments/footer :: commonFooter"></footer>
 </body>
 </html>
